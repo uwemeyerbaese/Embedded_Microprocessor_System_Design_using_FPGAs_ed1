@@ -1,0 +1,140 @@
+;**********************************************************
+;         Small C Compiler for Xilinx PicoBlaze
+;     PicoBlaze C Compiler, Version alpha 2.0
+;**********************************************************
+	NAMEREG sf , XL
+	NAMEREG se , YL
+	NAMEREG sd , ZL
+	NAMEREG sc , XH
+	NAMEREG sa , ZH
+	NAMEREG sb , TMP
+	NAMEREG s9 , SH
+	NAMEREG s8 , SL
+	NAMEREG s7 , KH
+	NAMEREG s6 , KL
+	NAMEREG s5 , TMP2
+	CONSTANT	_N		,	3f
+	CONSTANT	_f		,	3e
+	CONSTANT	_r		,	3d
+	CONSTANT	_i		,	3c
+	LOAD	YL , 3c
+	JUMP	_main
+_main:
+	LOAD ZL,05
+	STORE	ZL,_N
+	LOAD ZL,01
+	STORE	ZL,_f
+	LOAD ZL,01
+	STORE	ZL,_i
+L2:
+	LOAD	ZH,00
+	FETCH	ZL ,_i
+	SUB	YL , 01
+	STORE		ZL,(YL)
+	LOAD	ZH,00
+	FETCH	ZL ,_N
+	FETCH		XL,(YL)
+	ADD	YL , 01
+	SUB	XL,ZL
+	JUMP	C , 	L7
+	OR	XL,00
+	JUMP	Z, 	L7
+L6:
+	JUMP	L5
+L7:
+	JUMP	L4
+L3:
+	LOAD	ZH,00
+	FETCH	ZL ,_i
+	ADD	ZL , 01
+	STORE	ZL,_i
+	SUB	ZL , 01
+	JUMP	L2
+L4:
+	LOAD	ZH,00
+	FETCH	ZL ,_f
+	SUB	YL , 01
+	STORE		ZL,(YL)
+	LOAD	ZH,00
+	FETCH	ZL ,_i
+	FETCH		XL,(YL)
+	ADD	YL , 01
+	LOAD	XH,00
+	LOAD	ZH,00
+	call _mult
+	STORE	ZL,_f
+	JUMP	L3
+L5:
+	LOAD	ZH,00
+	FETCH	ZL ,_N
+	SUB	YL , 01
+	STORE		ZL,(YL)
+	CALL	_fact
+	ADD	YL , 01
+	STORE	XL,_r
+_end_main: jump _end_main; end of program!
+_fact:
+	LOAD	XL,	YL
+	FETCH		ZL,(XL)
+	SUB	YL , 01
+	STORE		ZL,(YL)
+	LOAD ZL,00
+	FETCH		XL,(YL)
+	ADD	YL , 01
+	SUB	XL,ZL
+	JUMP Z, 	L11
+	JUMP	L9
+L11:
+	LOAD ZL,01
+	JUMP	L8
+	JUMP	L10
+L9:
+	LOAD	XL,	YL
+	FETCH		ZL,(XL)
+	SUB	YL , 01
+	STORE		ZL,(YL)
+	LOAD	XL,	YL
+	ADD	XL ,	01
+	FETCH		ZL,(XL)
+	SUB	YL , 01
+	STORE		ZL,(YL)
+	LOAD ZL,01
+	FETCH		XL,(YL)
+	ADD	YL , 01
+	SUB	XL , ZL
+	SUB	YL , 01
+	STORE		XL,(YL)
+	CALL	_fact
+	ADD	YL , 01
+	FETCH	ZL, (YL)
+	ADD	YL , 01
+	LOAD	XH,00
+	LOAD	ZH,00
+	call _mult
+L10:
+L8:
+	LOAD	XL , ZL
+	LOAD	XH , ZH
+	RETURN
+
+; MULT SUBROUTINE
+_mult:
+	LOAD	TMP , 0f
+	LOAD	 SL, XL
+	LOAD	 SH, XH
+	LOAD	 XL, 00
+	LOAD	 XH, 00
+_m1: SR0	ZH
+	SRA	ZL
+	JUMP	NC , _m2
+	ADD	XL , SL
+	ADDCY	XH , SH
+_m2: SL0	SL
+	SLA SH
+	SUB TMP , 01
+	JUMP	NZ , _m1
+	LOAD	ZL,XL
+	LOAD	ZH,XH
+	RETURN
+
+;0 error(s) in compilation
