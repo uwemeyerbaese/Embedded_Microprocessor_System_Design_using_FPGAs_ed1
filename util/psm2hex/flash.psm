@@ -1,0 +1,11 @@
+start:  INPUT s3, 00  ; read switches
+flash:  LOAD s0, 20   ; start values loop
+        LOAD s1, BC   ; counter has 3x8=
+        LOAD s2, BE   ; 24 bits
+        OUTPUT s3, 00 ; write general LEDs
+loop:   SUB s0, 01    ; s0 -= 1
+        SUBCY s1, 00  ; sub with carry
+        SUBCY s2, 00  ; sub with carry        
+        JUMP NZ, loop ; count to zero
+        XOR s3, FF    ; invert LEDs
+        JUMP flash    ; start all over
