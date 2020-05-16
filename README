@@ -1,0 +1,56 @@
+Embedded_Microprocessor_System_Design_using_FPGAs  1. edition
+
+Here is a brief overview of the CD HDL files and the related book chapters.
+============================================================
+For Altera/Intel Quartus software/ DE boards the following source code should be used:
+
+* ARM (Chapter 11)
+  -- DE1_SoC_ TopDown system with 6 example applications
+
+* NiosII (Chapter 9)
+  -- DE1_SoC_Basic_Computer with FECG and FMIPS measurments
+  -- DE1_SoC_Custom_IP64sqrt with 64 double FP CIP
+  -- DE1_SoC_TopDown system with 6 example applications
+
+* Quartus
+  -- trisc2 Q15.1 VHDL tiny PicoBlaze model (Chapter 7)
+  -- trisc3arm Q15.1 VHDL tiny ARM Cortex-A9 model (Chapter 11)
+  -- trisc3mb Q15.1 VHDL tiny MicroBlaze model (Chapter 10)
+  -- trisc3nios Q15.1 VHDL tiny Nios II model (Chapter 9)
+  -- urisc  Q15.1 VHDL ultimate RISC mode (Chapter 2)
+
+* vQuartus  (Appendix A)
+  -- trisc2 Q15.1 Verilog tiny PicoBlaze model
+  -- trisc3arm Q15.1 Verilog tiny ARM Cortex-A9 model
+  -- trisc3mb Q15.1 Verilog tiny MicroBlaze model
+  -- trisc3nios Q15.1 Verilog tiny Nios II model
+  -- urisc  Q15.1 Verilog ultimate RISC model
+
+===========================================================
+For Xilinx Vivado software/ ZyBo boards the following source code should be used:
+
+* ARM (Chapter 11)
+  -- ZyBo_Basic_Computer with FP performance measurements
+
+* MicroBlaze (Chapter 10)
+  -- MB_Basic_Computer with FP performance measurements
+  -- MB_Basic_Computer_wFPH with FP co-processors
+  -- MB_HDMI_CIP with 4 color 4 font HDMI custom IP
+
+* Vivado
+  -- trisc2 V2016.4 VHDL tiny PicoBlaze model (Chapter 7)
+  -- trisc3arm V2016.4 VHDL tiny ARM Cortex-A9 model (Chapter 11)
+  -- trisc3mb V2016.4 VHDL tiny MicroBlaze model (Chapter 10)
+  -- trisc3nios V2016.4 VHDL tiny Nios II model (Chapter 9)
+  -- urisc  V2016.4 VHDL ultimate RISC model (Chapter 2)
+
+
+* vVivado  (Appendix A)
+  -- trisc2 V2016.4 Verilog tiny PicoBlaze model
+  -- trisc3arm V2016.4 Verilog tiny ARM Cortex-A9 model
+  -- trisc3mb V2016.4 Verilog tiny MicroBlaze model
+  -- trisc3nios V2016.4 Verilog tiny Nios II model
+  -- urisc  V2016.4 Verilog ultimate RISC model
+
+For each board separate ZIP files with correct pin assignements have been composed.
+This list will be updated as new boards become available.
