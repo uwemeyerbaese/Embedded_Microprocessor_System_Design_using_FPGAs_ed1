@@ -54,3 +54,15 @@ For Xilinx Vivado software/ ZyBo boards the following source code should be used
 
 For each board separate ZIP files with correct pin assignements have been composed.
 This list will be updated as new boards become available.
+
+The following boards are supported:
+Board      Vendor           ARM      VGA/HDMI   7-segments   SW   LEDs  Price
+=============================================================================
+DE1-SoC     TerASIC/Intel    Yes       VGA          6        10   10    $175
+DE2-115     TerASIC/Intel    No        VGA          8        18   27    $309
+DE0-Nano    TerASIC/Intel    No        ---          0        4     8    $61
+DE10-Lite   TerASIC/Intel    No        VGA          6        10    8    $55
+DE10-Nano   TerASIC/Intel    Yes       HDMI         0        4     8    $110
+
+ZyBo        Digilent/Xilinx  Yes     VGA+HDMI       0        4     5    $189
+
