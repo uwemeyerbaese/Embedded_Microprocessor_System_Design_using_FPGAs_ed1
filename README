@@ -52,7 +52,7 @@ For Xilinx Vivado software/ ZyBo boards the following source code should be used
   -- trisc3nios V2016.4 Verilog tiny Nios II model
   -- urisc  V2016.4 Verilog ultimate RISC model
 
-For each board separate ZIP files with correct pin assignements have been composed.
+For each board separate ZIP files with updated pin assignements and SW examples have been composed.
 This list will be updated as new boards become available.
 
 The following boards are supported:
