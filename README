@@ -65,4 +65,5 @@ DE10-Lite   TerASIC/Intel    No        VGA          6        10    10   $55
 DE10-Nano   TerASIC/Intel    Yes       HDMI         0        4     8    $110
 
 ZyBo        Digilent/Xilinx  Yes     VGA+HDMI       0        4     5    $189
+PYNQ Z2     TUL/Xilinx       Yes      HDMI          0        2    4+6   $119
 
